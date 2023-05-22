@@ -3,5 +3,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path("qualys/vulnerabilities", views.vuln_results)
+    path("", views.vuln_results)
 ]

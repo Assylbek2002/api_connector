@@ -11,11 +11,12 @@ def convert_to_json(data):
     return json.loads(result)
 
 
-@api_view(["POST"])
+@api_view(["GET"])
 def vuln_results(request):
     url = "https://qualysapi.qg2.apps.qualys.eu/api/2.0/fo/asset/host/vm/detection"
     headers = {"X-Requested-With": "Curl"}
-    auth = (request.data.get("username"), request.data.get("password"))
+    # your credentials
+    auth = ()
     params = {"action": "list"}
     xml_result = requests.get(url=url, params=params, headers=headers, auth=auth)
     return Response(convert_to_json(xml_result))
